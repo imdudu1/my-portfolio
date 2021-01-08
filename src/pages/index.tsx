@@ -1,93 +1,39 @@
 import React from "react";
-import Head from "next/head";
 import styled from "styled-components";
 import SnowFilter from "@/components/SnowFilter";
 
-const Container = styled.div``;
-
-const HeaderPresenter = styled.header`
+const Container = styled.main`
   height: 100vh;
   width: 100vw;
+`;
+
+// Layout styles
+const RowTable = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+`;
+
+const RowTableItem = styled.li`
+  list-style: none;
+  flex: 0 0 50%;
+`;
+
+// Logo section styles
+const LogoPresenter = styled.section`
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  background-color: #f6f6f6;
-  background-image: linear-gradient(
-      90deg,
-      #cdcccc 0px,
-      #cdcccc 1px,
-      transparent 1px,
-      transparent 99px,
-      transparent 100px
-    ),
-    linear-gradient(
-      #cdcccc 0px,
-      #cdcccc 1px,
-      transparent 1px,
-      transparent 99px,
-      transparent 100px
-    ),
-    linear-gradient(
-      #e0e0e0 0px,
-      #e0e0e0 1px,
-      transparent 1px,
-      transparent 99px,
-      transparent 100px
-    ),
-    linear-gradient(
-      90deg,
-      #e0e0e0 0px,
-      #e0e0e0 1px,
-      transparent 1px,
-      transparent 99px,
-      transparent 100px
-    ),
-    linear-gradient(
-      transparent 0px,
-      transparent 5px,
-      #f6f6f6 5px,
-      #f6f6f6 95px,
-      transparent 95px,
-      transparent 100px
-    ),
-    linear-gradient(
-      90deg,
-      #e0e0e0 0px,
-      #e0e0e0 1px,
-      transparent 1px,
-      transparent 99px,
-      #e0e0e0 99px,
-      #e0e0e0 100px
-    ),
-    linear-gradient(
-      90deg,
-      transparent 0px,
-      transparent 5px,
-      #f6f6f6 5px,
-      #f6f6f6 95px,
-      transparent 95px,
-      transparent 100px
-    ),
-    linear-gradient(
-      transparent 0px,
-      transparent 1px,
-      #f6f6f6 1px,
-      #f6f6f6 99px,
-      transparent 99px,
-      transparent 100px
-    ),
-    linear-gradient(#cdcccc, #cdcccc);
-  background-size: 100px 100%, 100% 100px, 100% 10px, 10px 100%, 100% 100px,
-    100px 100%, 100px 100%, 100px 100px, 100px 100px;
 `;
 
-const HeaderLogoWrapper = styled.div``;
+const LogoWrapper = styled.div``;
 
-const HeaderLogoImage = styled.img``;
+const LogoImage = styled.img``;
 
-const HeaderDescWrapper = styled.div`
+const LogoDescWrapper = styled.div`
   display: flex;
   flex: 0 0 auto;
   flex-direction: column;
@@ -108,34 +54,53 @@ const LogoSubText = styled.p`
   margin: 0;
 `;
 
-const MainPresenter = styled.main``;
+// About me section styles
+const AboutMePresenter = styled.section`
+  background-color: #fff;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
-const FooterPresenter = styled.footer``;
+// Text styles
+const ContentTitle = styled.h1``;
+
+const ContentSubTitle = styled.h2``;
+
+const ContentBody = styled.p``;
 
 const TextUnderLine = styled.span`
-  border-bottom: 6px solid #0986c6;
+  border-bottom: 5px solid #0986c6;
 `;
 
 const Home: React.FC = () => {
   return (
     <>
       <Container>
-        <HeaderPresenter>
-          <HeaderLogoWrapper>
-            <SnowFilter>
-              <HeaderLogoImage src="/mountain.png" alt="logo" />
-            </SnowFilter>
-          </HeaderLogoWrapper>
-          <HeaderDescWrapper>
-            <LogoSubText>95년 12월에 태어난 겨울☃️속성 개발자</LogoSubText>
-            <LogoText>
-              <TextUnderLine>신병주</TextUnderLine>
-            </LogoText>
-            <LogoSubText>입니다. 반갑습니다!👋</LogoSubText>
-          </HeaderDescWrapper>
-        </HeaderPresenter>
-        <MainPresenter></MainPresenter>
-        <FooterPresenter></FooterPresenter>
+        <RowTable>
+          <RowTableItem>
+            <LogoPresenter>
+              <LogoWrapper>
+                <SnowFilter>
+                  <LogoImage src="/mountain.png" alt="logo" />
+                </SnowFilter>
+              </LogoWrapper>
+              <LogoDescWrapper>
+                <LogoSubText>95년 12월에 태어난 냉기☃️속성 개발자</LogoSubText>
+                <LogoText>
+                  <TextUnderLine>신병주</TextUnderLine>
+                </LogoText>
+                <LogoSubText>입니다. 반갑습니다!👋</LogoSubText>
+              </LogoDescWrapper>
+            </LogoPresenter>
+          </RowTableItem>
+          <RowTableItem>
+            <AboutMePresenter></AboutMePresenter>
+          </RowTableItem>
+        </RowTable>
       </Container>
     </>
   );

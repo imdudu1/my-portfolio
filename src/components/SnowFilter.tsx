@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import styles from "@/styles/SnowStyle.module.scss";
+const styles = require("@/styles/SnowStyle.module.scss");
 
 const Container = styled.div`
   position: relative;
