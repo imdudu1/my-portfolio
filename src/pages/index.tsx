@@ -3,32 +3,30 @@ import styled from "styled-components";
 import SnowFilter from "@/components/SnowFilter";
 
 const Container = styled.main`
-  height: 100vh;
   width: 100vw;
+  max-height: 100vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 `;
 
-// Layout styles
-const RowTable = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0;
-  padding: 0;
-`;
-
-const RowTableItem = styled.li`
-  list-style: none;
-  flex: 0 0 50%;
-`;
-
-// Logo section styles
-const LogoPresenter = styled.section`
-  height: 100vh;
+const CommonPresenter = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  &:nth-of-type(1) {
+    
+  }
+  &:nth-of-type(2) {
+    background-color: #fff;
+  }
 `;
 
+// Logo section styles
 const LogoWrapper = styled.div``;
 
 const LogoImage = styled.img``;
@@ -54,17 +52,6 @@ const LogoSubText = styled.p`
   margin: 0;
 `;
 
-// About me section styles
-const AboutMePresenter = styled.section`
-  background-color: #fff;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
 // Text styles
 const ContentTitle = styled.h1``;
 
@@ -80,27 +67,21 @@ const Home: React.FC = () => {
   return (
     <>
       <Container>
-        <RowTable>
-          <RowTableItem>
-            <LogoPresenter>
-              <LogoWrapper>
-                <SnowFilter>
-                  <LogoImage src="/mountain.png" alt="logo" />
-                </SnowFilter>
-              </LogoWrapper>
-              <LogoDescWrapper>
-                <LogoSubText>95년 12월에 태어난 냉기☃️속성 개발자</LogoSubText>
-                <LogoText>
-                  <TextUnderLine>신병주</TextUnderLine>
-                </LogoText>
-                <LogoSubText>입니다. 반갑습니다!👋</LogoSubText>
-              </LogoDescWrapper>
-            </LogoPresenter>
-          </RowTableItem>
-          <RowTableItem>
-            <AboutMePresenter></AboutMePresenter>
-          </RowTableItem>
-        </RowTable>
+        <CommonPresenter>
+          <LogoWrapper>
+            <SnowFilter>
+              <LogoImage src="/mountain.png" alt="logo" />
+            </SnowFilter>
+          </LogoWrapper>
+          <LogoDescWrapper>
+            <LogoSubText>95년 12월에 태어난 개발을 즐기는 개발자</LogoSubText>
+            <LogoText>
+              <TextUnderLine>신병주</TextUnderLine>
+            </LogoText>
+            <LogoSubText>입니다. 반갑습니다!👋</LogoSubText>
+          </LogoDescWrapper>
+        </CommonPresenter>
+        <CommonPresenter></CommonPresenter>
       </Container>
     </>
   );
