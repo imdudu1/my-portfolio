@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const CustomGlobalStyle = createGlobalStyle`
   body {
-    font-family: 'Nanum Gothic', sans-serif;
+    font-family: "Nanum Myeongjo", sans-serif;
 
     background-color: #f6f6f6;
     background-image: linear-gradient(
