@@ -86,11 +86,26 @@ const LogoSubText = styled.p`
 // About me section styles
 const AboutMeContent = styled.div``;
 
-const MyPicture = styled.div``;
+const MyPicture = styled.img`
+  height: 192px;
+  width: 192px;
+  border-radius: 50%;
+`;
 
 const MyStory = styled.div``;
 
-const IntroduceWrapper = styled.div``;
+const IntroduceWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  > * {
+    :first-child {
+      margin-right: 50px;
+    }
+  }
+`;
 
 const QuestionWrapper = styled.div``;
 
@@ -146,7 +161,7 @@ const Home: React.FC = () => {
           <ContentWrapper>
             <AboutMeContent>
               <IntroduceWrapper>
-                <MyPicture></MyPicture>
+                <MyPicture src="/profile.jpg" alt="profile" />
                 <MyStory>
                   <ContentTitle>
                     배우고 만드는게 즐거워 노력하는 개발자
