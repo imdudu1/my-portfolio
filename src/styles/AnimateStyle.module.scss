@@ -1,0 +1,181 @@
+/*
+ * Snow animation
+ * from 
+ */
+
+$d: 20; // density
+$w: 200; // grid size
+$s: 3s; // speed
+
+// Generate the snow image using radial gradients
+$grad: ();
+@for $i from 0 to $d {
+  $v: random(4) + 2;
+  $a: random(5) * 0.1 + 0.5;
+  $grad: $grad,
+    radial-gradient(
+      $v +
+        px
+        $v +
+        px
+        at
+        (random($w - $v * 2) + $v) +
+        px
+        (random($w - $v * 2) + $v) +
+        px,
+      rgba(255, 255, 255, $a) 50%,
+      rgba(0, 0, 0, 0)
+    ) !global;
+}
+
+// The CSS
+.snow,
+.snow:before,
+.snow:after {
+  position: absolute;
+  top: -$w + px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: $grad;
+  background-size: $w + px $w + px;
+  animation: snow $s linear infinite;
+  content: "";
+}
+
+.snow:after {
+  margin-left: -$w/3 + px;
+  opacity: 0.4;
+  animation-duration: $s * 2;
+  animation-direction: reverse;
+  filter: blur(3px);
+}
+
+.snow:before {
+  animation-duration: $s * 3;
+  animation-direction: reverse;
+  margin-left: -$w/2 + px;
+  opacity: 0.65;
+  filter: blur(1.5px);
+}
+
+@keyframes snow {
+  to {
+    transform: translateY($w + px);
+  }
+}
+
+/*
+ * Cube animation
+ * from https://codepen.io/mohaiman/pen/MQqMyo
+ */
+
+.cubes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+.cubes li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  animation: animate 25s linear infinite;
+  bottom: -150px;
+}
+
+.cubes li:nth-child(1) {
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+
+.cubes li:nth-child(2) {
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+
+.cubes li:nth-child(3) {
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+
+.cubes li:nth-child(4) {
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+.cubes li:nth-child(5) {
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+}
+
+.cubes li:nth-child(6) {
+  left: 75%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 3s;
+}
+
+.cubes li:nth-child(7) {
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 7s;
+}
+
+.cubes li:nth-child(8) {
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  animation-delay: 15s;
+  animation-duration: 45s;
+}
+
+.cubes li:nth-child(9) {
+  left: 20%;
+  width: 15px;
+  height: 15px;
+  animation-delay: 2s;
+  animation-duration: 35s;
+}
+
+.cubes li:nth-child(10) {
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 30s;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.5;
+    border-radius: 0;
+  }
+
+  100% {
+    transform: translateY(-1400px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import SnowFilter from "@/components/SnowFilter";
+import { SectionCubeFilter, SnowFilter } from "@/components/AnimateFilter";
+import LangCard from "@/components/LangCard";
 
 // Text styles
 const ContentTitle = styled.h1``;
@@ -20,42 +21,42 @@ const Container = styled.main`
   width: 100vw;
   max-height: 100vh;
   overflow: overlay;
-  scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
-
   ::-webkit-scrollbar {
     width: 16px;
   }
-
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
   }
-
   ::-webkit-scrollbar-thumb {
   }
-
   ::-webkit-scrollbar-track {
   }
 `;
 
 const CommonPresenter = styled.section`
+  height: 100vh;
+  width: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100%;
   scroll-snap-align: start;
   &:nth-of-type(1) {
   }
   &:nth-of-type(2) {
     background-color: #fff;
   }
+  &:nth-of-type(3) {
+    background-color: #222733;
+  }
 `;
 
 const ContentWrapper = styled.div`
   width: 1200px;
+  z-index: 100;
 `;
 
 // Logo section styles
@@ -137,7 +138,12 @@ const QuestionBody = styled(ContentBody)`
   font-size: 15px;
 `;
 
+// My skills section styles
+const MySkillsContent = styled.div``;
+
 const Home: React.FC = () => {
+  const [lang, setLang] = React.useState<string>("default");
+
   return (
     <>
       <Container>
@@ -197,9 +203,9 @@ const Home: React.FC = () => {
                       개발 중 문제가 발생하면 어떻게 해결하나요?
                     </QuestionTitle>
                     <QuestionBody>
-                      저는 먼저 해당 로직에서 어떤 부분과 관련성이 있는지
+                      저는 먼저 문제가 되는 로직에서 어떤 부분과 관련성이 있는지
                       찾습니다. 그 이후 문제를 작은 단위로 나눠 관련된 공식 문서
-                      또는 검색을 통해 놓지 부분을 찾아보고 오류가 발생할 수
+                      또는 검색을 통해 놓친 부분을 찾아보고 오류가 발생할 수
                       있는 테스트 케이스를 적용하며 문제를 해결합니다. 이런
                       방식은 해결하기 어려운 논리적 오류를 효과적으로 해결하고
                       단순히 문제를 해결하는 것 외에도 많은 공부가 된다고
@@ -221,6 +227,41 @@ const Home: React.FC = () => {
                 </QuestionList>
               </QuestionWrapper>
             </AboutMeContent>
+          </ContentWrapper>
+        </CommonPresenter>
+        <CommonPresenter>
+          <SectionCubeFilter />
+          <ContentWrapper>
+            <LangCard
+              logoPath={"/ts-logo-128.png"}
+              name={"Typescript"}
+              homepage={"https://www.typescriptlang.org/"}
+            />
+            <LangCard
+              logoPath={"/js-logo-480.png"}
+              name={"Javascript"}
+              homepage={"https://www.javascript.com/"}
+            />
+            <LangCard
+              logoPath={"/golang-logo-400.png"}
+              name={"Golang"}
+              homepage={"https://golang.org/"}
+            />
+            <LangCard
+              logoPath={"/java-logo-518.png"}
+              name={"JAVA"}
+              homepage={"https://www.java.com/ko/"}
+            />
+            <LangCard
+              logoPath={"/php-logo-256.jpg"}
+              name={"PHP"}
+              homepage={"https://www.php.net/"}
+            />
+            <LangCard
+              logoPath={"/python-logo-768.png"}
+              name={"Python"}
+              homepage={"https://www.python.org/"}
+            />
           </ContentWrapper>
         </CommonPresenter>
       </Container>
