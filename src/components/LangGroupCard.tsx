@@ -49,8 +49,8 @@ const LangGroupCard: React.FC<Props> = ({ title, logos, subTitle }) => (
   <Container>
     <CardHeaderText>{title}</CardHeaderText>
     <CardLangLogoWrapper>
-      {logos.map((logo) => (
-        <LangImageWrapper>
+      {logos.map((logo, i) => (
+        <LangImageWrapper key={i}>
           <LangImage src={logo} alt="logo" />
         </LangImageWrapper>
       ))}

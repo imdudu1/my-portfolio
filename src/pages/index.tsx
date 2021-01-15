@@ -182,7 +182,6 @@ const SkillBox = styled.div`
   background-color: #fff;
   border-radius: 12px;
   float: right;
-  padding: 0 10px;
 `;
 
 const MySkillContent = styled.div`
@@ -290,15 +289,14 @@ const Home: React.FC = () => {
                 <ProfileName>신병주</ProfileName>
                 <ProfileText>
                   희망 직군 &middot;{" "}
-                  <BadgeText bgColor="#06458d" text="#웹 개발" />
+                  <BadgeText color="#06458d" text="#웹 개발" />
                 </ProfileText>
                 <ProfileText>
                   희망 업무 &middot;{" "}
-                  <BadgeText bgColor="#1f5cb7" text="#Back-end" />
+                  <BadgeText color="#1f5cb7" text="#Back-end" />
                 </ProfileText>
                 <ProfileText>
-                  경력 구분 &middot;{" "}
-                  <BadgeText bgColor="#cf9933" text="#신입" />
+                  경력 구분 &middot; <BadgeText color="#cf9933" text="#신입" />
                 </ProfileText>
               </ProfileContent>
             </ProfileBox>
@@ -306,7 +304,7 @@ const Home: React.FC = () => {
               <MySkillContent>
                 <LangGroupCard
                   title="🥇"
-                  subTitle="Friendly"
+                  subTitle=""
                   logos={[
                     "/ts-logo-128.png",
                     "/js-logo-480.png",
@@ -315,17 +313,17 @@ const Home: React.FC = () => {
                 />
                 <LangGroupCard
                   title="🥈"
-                  subTitle="Friendly"
+                  subTitle=""
                   logos={["/python-logo-768.png", "/cpp-logo-920.png"]}
                 />
                 <LangGroupCard
                   title="🥉"
-                  subTitle="Friendly"
+                  subTitle=""
                   logos={["/java-logo-518.png", "/php-logo-256.jpg"]}
                 />
                 <LangGroupCard
                   title="🧪"
-                  subTitle="Learning"
+                  subTitle=""
                   logos={["/rust-logo-220.png", "/kotlin-logo-240.png"]}
                 />
               </MySkillContent>
